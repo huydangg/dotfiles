@@ -2,6 +2,7 @@
 --
 local opt = vim.opt
 
+opt.background = "light"
 
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.mouse = "a" -- allow the mouse to be used in neovim

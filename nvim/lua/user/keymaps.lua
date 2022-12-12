@@ -41,6 +41,9 @@ keymap("v", "p", '"_dP', opts)
 -- Telescope
 keymap("n", "<C-p>", ":Telescope find_files no_ignore=true<CR>", opts)
 keymap("n", "<C-g>", ":Telescope live_grep<CR>", opts)
+keymap("n", "<C-Space>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
+
+
 keymap("n", "<leader>th", ":lua require'telescope.builtin'.colorscheme(require('telescope.themes').get_dropdown{})<CR>",
 	opts)
 

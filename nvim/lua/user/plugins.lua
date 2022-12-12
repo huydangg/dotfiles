@@ -36,20 +36,19 @@ return packer.startup(function(use)
 
 
 	use {
-		'kyazdani42/nvim-tree.lua',
+		'nvim-tree/nvim-tree.lua',
 		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icon
+			'nvim-tree/nvim-web-devicons', -- optional, for file icon
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
 	--ColorScheme
-	use "projekt0n/github-nvim-theme"
+	use 'Mofiqul/vscode.nvim'
 
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
 
 	-- cmp plugins
@@ -73,7 +72,6 @@ return packer.startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
-	use "nvim-telescope/telescope-media-files.nvim"
 
 
 	-- Treesitter
@@ -91,8 +89,6 @@ return packer.startup(function(use)
 	-- Comment
 	use "numToStr/Comment.nvim"
 
-	--ToggleTerm
-	use "akinsho/toggleterm.nvim"
 
 	-- Alpha
 	use "goolord/alpha-nvim"
@@ -105,6 +101,8 @@ return packer.startup(function(use)
 	use 'rmagatti/auto-session'
 
 	use 'lukas-reineke/indent-blankline.nvim'
+
+use 'ggandor/lightspeed.nvim'
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
