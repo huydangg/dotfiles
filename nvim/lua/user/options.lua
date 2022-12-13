@@ -14,5 +14,7 @@ opt.title = true
 
 -- Numbers
 opt.number = true
+opt.cursorline = true
+
 opt.numberwidth = 2
 opt.ruler = false
