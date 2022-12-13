@@ -10,7 +10,7 @@ lualine.setup {
 		theme = 'vscode',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
-		disabled_filetypes = { "NvimTree", "TelescopePrompt", "packer", "toggleterm", "alpha" },
+		disabled_filetypes = { "TelescopePrompt", "packer", "toggleterm", "alpha" },
 		always_divide_middle = true,
 		globalstatus = false,
 	},
@@ -37,5 +37,5 @@ lualine.setup {
 		lualine_z = {}
 	},
 	tabline = {},
-	extensions = {}
+	extensions = {'nvim-tree'}
 }
