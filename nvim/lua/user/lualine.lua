@@ -3,6 +3,9 @@ if not status_ok then
 	return
 end
 
+local function get_project_name()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
 
 lualine.setup {
 	options = {
@@ -16,7 +19,7 @@ lualine.setup {
 	},
 	sections = {
 		lualine_a = { 'mode' },
-		lualine_b = { 'branch', 'diff', 'diagnostics' },
+		lualine_b = { get_project_name, 'branch', 'diff', 'diagnostics' },
 		lualine_c = {
 			{
 				'filename',
