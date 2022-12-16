@@ -16,9 +16,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
--- Bufferline
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
 -- Nvim tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
@@ -51,5 +48,3 @@ keymap("n", "<leader>th", ":lua require'telescope.builtin'.colorscheme(require('
 keymap("n", "<leader>b", ":Gitsigns blame_line<CR>", opts)
 keymap("n", "<leader>d", ":Gitsigns diffthis<CR>", opts)
 
---ToogleTerm
-keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
