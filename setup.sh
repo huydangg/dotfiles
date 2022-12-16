@@ -1,30 +1,11 @@
 #!/bin/bash
 
-HOME=pwd
 CURRENT_VERSION_NVIM=""
 
 
 build_prerequisites()
 {
 	if [ "$OSTYPE" = "linux-gnu"* ] ; then
-		 echo "you chose choice 1"
-	elif [ "$OSTYPE" = "darwin"* ] ; then
-					# Mac OSX
-		 echo "you chose choice 1"
-	elif [ "$OSTYPE" = "cygwin" ] ; then
-					# POSIX compatibility layer and Linux environment emulation for Windows
-		 echo "you chose choice 1"
-	elif [ "$OSTYPE" = "msys" ] ; then
-					# Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-		 echo "you chose choice 1"
-	elif [ "$OSTYPE" = "win32" ] ; then
-					# I'm not sure this can happen.
-		 echo "you chose choice 1"
-	elif [ "$OSTYPE" = "freebsd"* ] ; then
-					# ...
-		 echo "you chose choice 1"
-	else
-					# Unknown.
 		 echo "you chose choice 1"
 	fi
 }
@@ -63,13 +44,34 @@ install_nvim()
 	 nvim --version
 }
 
+install_zsh()
+{
+		echo "START INSTALL ZSH"
+   	echo "Downloading OMZ"
+		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		post_install_zsh
+}
+
+post_install_zsh()
+{
+   echo "Install dependentcies"
+	 echo "Install zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	 echo "Applying current config"
+	 cp zsh/.zshrc $HOME 
+	 source $HOME/.zshrc
+}
+
 PS3='Please enter your choice: '
 options=("Auto" "Install neovim" "Install alacritty" "Quit")
 select opt in "${options[@]}"
 do
-    case $opt in
+	case $opt in
         "Auto")
             echo "you chose choice 1"
+            ;;
+        "Install zsh")
+					install_zsh
             ;;
         "Install neovim")
 					install_nvim
