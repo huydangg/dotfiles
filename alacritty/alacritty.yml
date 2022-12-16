@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  #opacity: 1.0
+  opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -189,39 +189,38 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-colors:
-  # Default colors
-  primary:
-    background: '0xffffff'
-    foreground: '0x24292f'
+schemes:
+  codelight: &light
+    primary:
+      background: '#ffffff'
+      foreground: '#1e1e1e'
 
-  # Normal colors
-  normal:
-    black:   '0x24292e'
-    red:     '0xd73a49'
-    green:   '0x28a745'
-    yellow:  '0xdbab09'
-    blue:    '0x0366d6'
-    magenta: '0x5a32a3'
-    cyan:    '0x0598bc'
-    white:   '0x6a737d'
+    cursor:
+      text: '#ffffff'
+      cursor: '#1e1e1e'
 
-  # Bright colors
-  bright:
-    black:   '0x959da5'
-    red:     '0xcb2431'
-    green:   '0x22863a'
-    yellow:  '0xb08800'
-    blue:    '0x005cc5'
-    magenta: '0x5a32a3'
-    cyan:    '0x3192aa'
-    white:   '0xd1d5da'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
 
-  indexed_colors:
-    - { index: 16, color: '0xd18616' }
-    - { index: 17, color: '0xcb2431' }
+    bright:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+colors: *light
+
 # Bell
-#
 # The bell is rung every time the BEL control character is received.
 #bell:
   # Visual Bell Animation
