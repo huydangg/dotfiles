@@ -18,4 +18,3 @@ opt.cursorline = true
 
 opt.numberwidth = 2
 opt.ruler = false
-opt.laststatus = 3
