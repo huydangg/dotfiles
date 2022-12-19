@@ -5,7 +5,9 @@ end
 
 nvim_tree.setup {
 	auto_reload_on_write = true,
-  sort_by = "case_sensitive",
+  open_on_setup_file = true,
+  disable_netrw = false,
+  sort_by = "name",
   view = {
     adaptive_size = true,
     mappings = {
