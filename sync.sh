@@ -17,7 +17,7 @@ fi
 sync_nvim()
 {
 	echo "START SYNC NEOVIM (from source: $DEFAULT_PATH_NEOVIM)" 
- 	rsync -avh --progress $DEFAULT_PATH_NEOVIM . --exclude plugin
+ 	rsync -avh --progress $DEFAULT_PATH_NEOVIM . --exclude 'plugin' --exclude '.gitignore' --delete
 }
 
 sync_alacritty()

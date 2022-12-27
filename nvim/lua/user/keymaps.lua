@@ -11,8 +11,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts) keymap("n", "<A-j>", ":m .+1<CR>==", opts)
-keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 
 -- Nvim tree
@@ -23,13 +22,17 @@ keymap("n", "<leader>t", ":NvimTreeFindFile<CR>", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
+keymap("c", "jk", "<ESC>", opts)
+
 
 --Visual
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", opts)
 
 -- Move text up and down
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
@@ -69,4 +72,3 @@ keymap("v", "<C-Space>", ":lua visual_current_buffer_fuzzy_find()<CR>", opts)
 
 --Gitsigns
 keymap("n", "<leader>b", ":Gitsigns blame_line<CR>", opts)
-

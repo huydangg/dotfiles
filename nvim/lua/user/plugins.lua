@@ -1,111 +1,97 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-	print "Installing packer close and reopen Neovim..."
-	vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	return
 end
 
--- Have packer use a popup window
-packer.init {
-	display = {
-		open_fn = function()
-			return require("packer.util").float { border = "rounded" }
-		end,
-	},
-}
 
-return packer.startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
-	use 'nvim-lua/plenary.nvim'
-
-
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional, for file icon
-		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
-	}
-
+return lazy.setup({
 	--ColorScheme
-	use 'Mofiqul/vscode.nvim'
+	"Mofiqul/vscode.nvim",
 
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	}
+	"nvim-lua/plenary.nvim",
+
+	{ 
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icon
+		},
+	},
+
+
+	{ 
+		"nvim-lualine/lualine.nvim",
+		dependencies = { 'nvim-tree/nvim-web-devicons'}
+	},
 
 	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-	use "hrsh7th/cmp-buffer" -- buffer completions
-	use "hrsh7th/cmp-path" -- path completions
-	use "hrsh7th/cmp-cmdline" -- cmdline completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	use "hrsh7th/cmp-nvim-lsp"
+	{
+		"hrsh7th/nvim-cmp", -- The completion plugin
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-buffer", -- buffer completions
+			"hrsh7th/cmp-path", -- path completions
+			"hrsh7th/cmp-cmdline", -- cmdline completions
+			"hrsh7th/cmp-nvim-lsp",
 
-	-- snippets
-	use "L3MON4D3/LuaSnip" --snippet engine
-	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+		},
+	},
+
 
 	-- LSP
-	use "neovim/nvim-lspconfig" -- enable LSP
-	use { "williamboman/mason.nvim" }
-	use { "williamboman/mason-lspconfig.nvim" }
+	"neovim/nvim-lspconfig", -- enable LSP
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+
 	-- Telescope
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+	{ 
+		"nvim-telescope/telescope.nvim",
+ 		dependencies = { 
+			"nvim-lua/plenary.nvim",
+			{"nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
+	},
 
 
 	-- Treesitter
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
+	{ 
+		"nvim-treesitter/nvim-treesitter",
+		cmd = "TSUpdate" 
+	},
 
 	-- Gitsigns
-	use "lewis6991/gitsigns.nvim"
+	"lewis6991/gitsigns.nvim",
 
 	-- Autopairs
-	use "windwp/nvim-autopairs"
+	"windwp/nvim-autopairs",
 
 	-- Comment
-	use "numToStr/Comment.nvim"
+	"numToStr/Comment.nvim",
 
 
 	-- Alpha
-	use "goolord/alpha-nvim"
+	"goolord/alpha-nvim",
 
 	-- Project
-	use "ahmedkhalf/project.nvim"
+	"ahmedkhalf/project.nvim",
 
-	use 'lewis6991/impatient.nvim'
 
-	use 'rmagatti/auto-session'
+	"rmagatti/auto-session",
 
-	use 'lukas-reineke/indent-blankline.nvim'
+	"lukas-reineke/indent-blankline.nvim",
 
-use 'ggandor/lightspeed.nvim'
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require('packer').sync()
-	end
-end)
+  "ggandor/lightspeed.nvim",
+})

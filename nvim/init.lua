@@ -15,7 +15,5 @@ require "user.nvim-tree"
 require "user.lualine"
 require "user.alpha"
 require "user.project"
-require "user.impatient"
 require "user.auto-session"
 require "user.indent-blankline"
-
