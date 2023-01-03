@@ -3,5 +3,5 @@ if not status_ok then
 	return
 end
 
-require("user.lsp.mason")
-require("user.lsp.handlers").setup()
+require("plugins.lsp.mason")
+require("plugins.lsp.handlers").setup()
