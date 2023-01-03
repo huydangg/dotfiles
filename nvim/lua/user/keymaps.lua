@@ -4,8 +4,6 @@ local keymap = vim.api.nvim_set_keymap
 -- Normal
 -- Remap space as leader key
 keymap("n", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -14,14 +12,12 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 
--- Nvim tree
-keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>t", ":NvimTreeFindFile<CR>", opts)
+-- nnn
+keymap("n", "<C-n>", ":NnnExplorer<CR>", opts)
 
 -- Insert
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-
 keymap("c", "jk", "<ESC>", opts)
 
 

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local function get_project_name()
-  return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
 
 lualine.setup {
@@ -13,7 +13,7 @@ lualine.setup {
 		theme = 'onelight',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
-		disabled_filetypes = { "TelescopePrompt", "packer", "toggleterm", "alpha" },
+		disabled_filetypes = { "TelescopePrompt", "nnn" },
 		always_divide_middle = true,
 		globalstatus = false,
 	},
@@ -23,7 +23,7 @@ lualine.setup {
 		lualine_c = {
 			{
 				'filename',
-				path = 1,               -- 1: Relative path 
+				path = 1, -- 1: Relative path
 			}
 
 		},
@@ -40,5 +40,5 @@ lualine.setup {
 		lualine_z = {}
 	},
 	tabline = {},
-	extensions = {'nvim-tree'}
+	extensions = {}
 }

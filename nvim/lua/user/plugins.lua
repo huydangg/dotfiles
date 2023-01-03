@@ -1,14 +1,14 @@
 local fn = vim.fn
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--single-branch",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	})
 end
 vim.opt.runtimepath:prepend(lazypath)
 
@@ -18,35 +18,38 @@ if not status_ok then
 end
 
 
+
 return lazy.setup({
 	--ColorScheme
 	"Mofiqul/vscode.nvim",
 
 	"nvim-lua/plenary.nvim",
 
-	{ 
-		"nvim-tree/nvim-tree.lua",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icon
-		},
-	},
+	-- Try to off nvim-tree for while
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	dependencies = {
+	-- 		"nvim-tree/nvim-web-devicons", -- optional, for file icon
+	-- 	},
+	-- },
 
 
-	{ 
+	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { 'nvim-tree/nvim-web-devicons'}
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
 	},
 
 	-- cmp plugins
 	{
 		"hrsh7th/nvim-cmp", -- The completion plugin
-		event = "InsertEnter",
+		-- event = "InsertEnter",
 		dependencies = {
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-buffer", -- buffer completions
 			"hrsh7th/cmp-path", -- path completions
 			"hrsh7th/cmp-cmdline", -- cmdline completions
 			"hrsh7th/cmp-nvim-lsp",
-
 		},
 	},
 
@@ -57,19 +60,19 @@ return lazy.setup({
 	"williamboman/mason-lspconfig.nvim",
 
 	-- Telescope
-	{ 
+	{
 		"nvim-telescope/telescope.nvim",
- 		dependencies = { 
+		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{"nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
 
 
 	-- Treesitter
-	{ 
+	{
 		"nvim-treesitter/nvim-treesitter",
-		cmd = "TSUpdate" 
+		cmd = "TSUpdate"
 	},
 
 	-- Gitsigns
@@ -81,17 +84,11 @@ return lazy.setup({
 	-- Comment
 	"numToStr/Comment.nvim",
 
-
-	-- Alpha
-	"goolord/alpha-nvim",
-
-	-- Project
-	"ahmedkhalf/project.nvim",
-
-
-	"rmagatti/auto-session",
+	-- "rmagatti/auto-session",
 
 	"lukas-reineke/indent-blankline.nvim",
 
-  "ggandor/lightspeed.nvim",
+	"ggandor/lightspeed.nvim",
+
+	"luukvbaal/nnn.nvim"
 })

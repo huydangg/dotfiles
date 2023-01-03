@@ -13,7 +13,7 @@ opt.termguicolors = true
 opt.title = true
 
 -- Numbers
-opt.number = true
+opt.number = false
 opt.cursorline = true
 
 opt.numberwidth = 2
@@ -21,6 +21,6 @@ opt.ruler = false
 
 opt.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
 })

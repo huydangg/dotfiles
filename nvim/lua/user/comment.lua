@@ -4,12 +4,12 @@ if not status_ok then
 end
 
 comment.setup {
-		toggler = {
-				line = 'gcc',
-				block = 'gbc',
-		},
-		opleader = {
-				line = 'gc',
-				block = 'gb',
-		},
+	toggler = {
+		line = 'gcc',
+		block = 'gbc',
+	},
+	opleader = {
+		line = 'gc',
+		block = 'gb',
+	},
 }
