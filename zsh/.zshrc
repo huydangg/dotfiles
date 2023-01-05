@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/.local/bin
 export GOPATH="$HOME/Projects"
 alias lg=lazygit
 # Config Ibus
@@ -109,6 +110,11 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
-ibus-daemon -drx
 
+if command -v ibus &> /dev/null
+then
+	 ibus-daemon -drx
+fi
+
+alias nvim='nvim -i NONE'
 alias nv=nvim
