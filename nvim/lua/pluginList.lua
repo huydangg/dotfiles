@@ -25,14 +25,6 @@ return lazy.setup({
 
 	"nvim-lua/plenary.nvim",
 
-	-- Try to off nvim-tree for while
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons", -- optional, for file icon
-	-- 	},
-	-- },
-
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -76,7 +68,7 @@ return lazy.setup({
 	},
 
 	-- Gitsigns
-	"lewis6991/gitsigns.nvim",
+	-- "lewis6991/gitsigns.nvim",
 
 	-- Autopairs
 	"windwp/nvim-autopairs",
@@ -84,11 +76,11 @@ return lazy.setup({
 	-- Comment
 	"numToStr/Comment.nvim",
 
-	-- "rmagatti/auto-session",
-
 	"lukas-reineke/indent-blankline.nvim",
 
 	"ggandor/lightspeed.nvim",
 
-	"luukvbaal/nnn.nvim"
+	"luukvbaal/nnn.nvim",
+
+	"f-person/git-blame.nvim"
 })

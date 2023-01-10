@@ -3,7 +3,7 @@ local vscode = require('vscode')
 
 vscode.setup({
 	-- -- Enable transparent background
-	transparent = false,
+	transparent = true,
 	--
 	-- -- Enable italic comment
 	italic_comments = true,

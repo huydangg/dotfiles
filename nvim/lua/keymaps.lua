@@ -5,6 +5,7 @@ local keymap = vim.api.nvim_set_keymap
 -- Remap space as leader key
 keymap("n", "<Space>", "<Nop>", opts)
 
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -32,6 +33,7 @@ keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
+keymap("v", "p", '"_dP', opts)
 
 -- Telescope
 -- TODO: MOVE this function to telescope.lua
@@ -67,4 +69,4 @@ keymap("n", "<C-Space>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("v", "<C-Space>", ":lua visual_current_buffer_fuzzy_find()<CR>", opts)
 
 --Gitsigns
-keymap("n", "<leader>b", ":Gitsigns blame_line<CR>", opts)
+keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)

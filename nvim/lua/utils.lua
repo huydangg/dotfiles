@@ -3,7 +3,8 @@ g.mapleader = " "
 g.maplocalleader = " "
 g.loaded_netrwPlugin = 1
 g.loaded_netrw = 1
-
+g.gitblame_enabled = 0
+g.gitblame_date_format = '%r'
 local disabled_built_ins = {
 	"netrw",
 	"netrwPlugin",
