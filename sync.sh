@@ -17,13 +17,13 @@ fi
 local_to_git() {
 
 	echo "START SYNC ZSH (from source: $DEFAULT_PATH_ZSHRC)" 
- 	rsync -avz --progress $DEFAULT_PATH_ZSHRC ./zsh
+ 	rsync -avh --progress $DEFAULT_PATH_ZSHRC ./zsh
 
 	echo "START SYNC ALACRITTY (from source: $DEFAULT_PATH_ALACRITTY)" 
  	rsync -avh --progress $DEFAULT_PATH_ALACRITTY . 
 
 	echo "START SYNC TMUX (from source: $DEFAULT_PATH_TMUX)" 
- 	rsync -avz --progress $DEFAULT_PATH_TMUX ./tmux
+ 	rsync -avh --progress $DEFAULT_PATH_TMUX ./tmux
 
 	echo "START SYNC NEOVIM (from source: $DEFAULT_PATH_NEOVIM)" 
  	rsync -avh --progress $DEFAULT_PATH_NEOVIM . --exclude 'plugin' --exclude '.gitignore' --delete
@@ -32,16 +32,16 @@ local_to_git() {
 
 git_to_local() {
 	echo "START SYNC ZSH (from source: $PWD/zsh)" 
- 	rsync -avz --progress ./zsh/.zshrc $DEFAULT_PATH_ZSHRC 
+ 	rsync -avh --progress ./zsh/.zshrc $DEFAULT_PATH_ZSHRC 
 
 	echo "START SYNC ALACRITTY (from source: $PWD/.alacritty)" 
- 	rsync -avh --progress  ./alacritty $DEFAULT_PATH_ALACRITTY
+ 	rsync -avh --progress  ./alacritty/ $DEFAULT_PATH_ALACRITTY
 
 	echo "START SYNC TMUX (from source: $PWD/tmux)" 
- 	rsync -avz --progress  ./tmux/.tmux.conf $DEFAULT_PATH_TMUX
+ 	rsync -avh --progress  ./tmux/.tmux.conf $DEFAULT_PATH_TMUX
 
 	echo "START SYNC NEOVIM (from source: $PWD/nvim)" 
- 	rsync -avh --progress ./nvim $DEFAULT_PATH_NEOVIM --exclude 'plugin' --exclude '.gitignore' --delete
+ 	rsync -avh --progress ./nvim/ $DEFAULT_PATH_NEOVIM --exclude 'plugin' --exclude '.gitignore' --delete
 }
 
 
