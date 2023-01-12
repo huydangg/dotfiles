@@ -9,6 +9,7 @@ DEFAULT_PATH_ZSHRC=""
 echo "YOUR CURRENT OS: $OSTYPE"
 if [ "$OSTYPE" = "linux-gnu" ] ; then
 	DEFAULT_PATH_NEOVIM="$HOME/.config/nvim"
+	DEFAULT_PATH_FISH="$HOME/.config/fish"
 	DEFAULT_PATH_ALACRITTY="$HOME/.config/alacritty"
 	DEFAULT_PATH_TMUX="$HOME/.tmux.conf"
 	DEFAULT_PATH_ZSHRC="$HOME/.zshrc"
@@ -26,7 +27,10 @@ local_to_git() {
  	rsync -avh --progress $DEFAULT_PATH_TMUX ./tmux
 
 	echo "START SYNC NEOVIM (from source: $DEFAULT_PATH_NEOVIM)" 
- 	rsync -avh --progress $DEFAULT_PATH_NEOVIM . --exclude 'plugin' --exclude '.gitignore' --delete
+ 	rsync -avh --progress $DEFAULT_PATH_NEOVIM . --exclude '.gitignore' --delete
+
+	echo "START SYNC FISH (from source: $DEFAULT_PATH_FISH)" 
+ 	rsync -avh --progress $DEFAULT_PATH_FISH . --exclude '.gitignore' --delete
 
 }
 
