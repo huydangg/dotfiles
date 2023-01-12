@@ -312,7 +312,7 @@ colors: *light
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
- program: /bin/zsh 
+ program: /bin/fish
  args:
    - --login
    - -c
