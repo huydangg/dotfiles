@@ -68,5 +68,11 @@ keymap("v", "<C-g>", ":lua visual_live_grep()<CR>", opts)
 keymap("n", "<C-Space>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("v", "<C-Space>", ":lua visual_current_buffer_fuzzy_find()<CR>", opts)
 
---Gitsigns
+-- Gitsigns
 keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
+
+-- diagnostic
+keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
