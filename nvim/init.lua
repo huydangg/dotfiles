@@ -1,6 +1,6 @@
+require "options"
 require "utils"
 require "pluginList"
-require "options"
 require "keymaps"
 require "theme"
 

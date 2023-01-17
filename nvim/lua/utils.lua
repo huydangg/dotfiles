@@ -1,10 +1,4 @@
 local g = vim.g
-g.mapleader = " "
-g.maplocalleader = " "
-g.loaded_netrwPlugin = 1
-g.loaded_netrw = 1
-g.gitblame_enabled = 0
-g.gitblame_date_format = '%r'
 local disabled_built_ins = {
 	"netrw",
 	"netrwPlugin",
@@ -29,3 +23,10 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
 	g["loaded_" .. plugin] = 1
 end
+
+g.mapleader = " "
+g.maplocalleader = " "
+g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.gitblame_enabled = 0
+g.gitblame_date_format = '%r'
