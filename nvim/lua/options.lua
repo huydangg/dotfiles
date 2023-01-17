@@ -27,4 +27,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 
 opt.lazyredraw = true
 opt.shada = ""
-
