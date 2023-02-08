@@ -23,8 +23,7 @@ telescope.setup {
 	pickers = {
 		find_files = {
 			theme = "dropdown",
-			find_command = { "fd", "--type", "file", "--hidden", "--glob", "--exclude", ".git", "--exclude", ".cache", "--exclude",
-				"*.o" },
+			find_command = { "fd", "--type", "file", "--hidden", "--glob", "--exclude", ".git", "--exclude", ".cache", "--exclude", "*.o" },
 		},
 		live_grep = {
 			theme = "dropdown",
