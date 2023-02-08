@@ -5,4 +5,5 @@ alias lg=lazygit
 alias nvim='nvim -i NONE'
 alias nv=nvim
 set --export PATH $HOME/.cargo/bin $PATH
+set --export PATH $HOME/go/bin $PATH
 alias cal='ncal -b'
