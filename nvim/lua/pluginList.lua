@@ -81,7 +81,8 @@ return lazy.setup({
 
 	"ggandor/lightspeed.nvim",
 
-	"luukvbaal/nnn.nvim",
 
-	"f-person/git-blame.nvim"
+	"f-person/git-blame.nvim",
+
+	"stevearc/oil.nvim"
 })

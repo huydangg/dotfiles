@@ -13,4 +13,5 @@ require "plugins.autopairs"
 require "plugins.comment"
 require "plugins.lualine"
 require "plugins.indent-blankline"
-require "plugins.nnn"
+
+require("oil").setup()
