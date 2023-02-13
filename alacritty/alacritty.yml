@@ -30,8 +30,8 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-   columns: 120
-   lines: 50
+   columns: 125
+   lines: 60
 
   # Window position (changes require restart)
   #
@@ -127,7 +127,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 6
+  size: 9.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -283,11 +283,11 @@ colors: *light
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
- program: /bin/fish
+ program: /usr/bin/fish
  args:
    - --login
    - -c
-   - "/usr/bin/tmux attach || /usr/bin/tmux new-session"
+   - "tmux attach || tmux"
 
 # Startup directory
 #
