@@ -2,6 +2,22 @@
 
 CURRENT_VERSION_NVIM=""
 
+# TODO
+# Set tap to click
+# /etc/X11/xorg.conf.d/40-libinput.conf
+# --------------------------
+# Section "InputClass"
+#         Identifier "libinput touchpad catchall"
+#         MatchIsTouchpad "on"
+#         MatchDevicePath "/dev/input/event*"
+#         Driver "libinput"
+# 	Option "Tapping" "on"
+# EndSection
+#
+# Fix bluetooth autosuspend
+#/etc/default/grub
+#Add this line: GRUB_CMDLINE_LINUX_DEFAULT="usbcore.autosuspend=0"
+#sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 build_prerequisites()
 {
 	if [ "$OSTYPE" = "linux-gnu" ] ; then
