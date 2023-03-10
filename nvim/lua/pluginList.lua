@@ -68,8 +68,6 @@ return lazy.setup({
 		cmd = "TSUpdate"
 	},
 
-	-- Gitsigns
-	-- "lewis6991/gitsigns.nvim",
 
 	-- Autopairs
 	"windwp/nvim-autopairs",
@@ -84,5 +82,6 @@ return lazy.setup({
 
 	"f-person/git-blame.nvim",
 
-	"stevearc/oil.nvim"
+	"stevearc/oil.nvim",
+
 })

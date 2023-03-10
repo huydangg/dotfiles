@@ -10,12 +10,15 @@ end
 lualine.setup {
 	options = {
 		icons_enabled = true,
-		theme = 'onelight',
+		theme = 'auto',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = { "TelescopePrompt", "nnn" },
 		always_divide_middle = true,
 		globalstatus = false,
+		refresh = {
+				statusline = 100,
+		},
 	},
 	sections = {
 		lualine_a = { 'mode' },
