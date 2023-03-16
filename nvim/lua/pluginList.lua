@@ -77,8 +77,7 @@ return lazy.setup({
 
 	"lukas-reineke/indent-blankline.nvim",
 
-	"ggandor/lightspeed.nvim",
-
+	"ggandor/leap.nvim",
 
 	"f-person/git-blame.nvim",
 

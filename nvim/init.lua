@@ -15,3 +15,4 @@ require "plugins.lualine"
 require "plugins.indent-blankline"
 
 require("oil").setup()
+require('leap').add_default_mappings()

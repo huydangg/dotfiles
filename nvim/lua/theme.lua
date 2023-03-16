@@ -3,6 +3,7 @@ local vscode = require('vscode')
 
 vscode.setup({
 	-- -- Enable transparent background
+	style = 'light',
 	transparent = false,
 	--
 	-- -- Enable italic comment
@@ -26,5 +27,4 @@ vscode.setup({
 		["@keyword.return"] = { fg = c.vscPink, bg = c.vscNone }
 	}
 })
-
-
+vscode.load('light')
