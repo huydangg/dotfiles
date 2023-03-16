@@ -1,10 +1,11 @@
 #!/bin/bash
 
 declare -a fonts=(
+		FiraCode
     Hack
 )
 
-version='2.1.0'
+version='latest'
 fonts_dir="${HOME}/.local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then
@@ -13,7 +14,7 @@ fi
 
 for font in "${fonts[@]}"; do
     zip_file="${font}.zip"
-    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+    download_url="https://github.com/ryanoasis/nerd-fonts/releases/${version}/download/${zip_file}"
     echo "Downloading $download_url"
     wget "$download_url"
     unzip "$zip_file" -d "$fonts_dir"
