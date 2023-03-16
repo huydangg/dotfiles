@@ -111,19 +111,19 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack 
+    family: FiraCode Nerd Font
     style: Regular
 
   bold:
-    family: Hack
+    family: FiraCode Nerd Font
     style: Bold
 
   italic:
-    family: Hack
+    family: FiraCode Nerd Font
     style: Italic
 
   bold_italic:
-    family: Hack
+    family: FiraCode Nerd Font
     style: Bold Italic
 
   # Point size
