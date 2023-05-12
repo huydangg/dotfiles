@@ -14,7 +14,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 
 -- nnn
-keymap("n", "<C-n>", ":NnnExplorer<CR>", opts)
+keymap("n", "<C-n>", ":Oil<CR>", opts)
 
 -- Insert
 -- Press jk fast to enter
