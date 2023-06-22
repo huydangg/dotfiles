@@ -220,7 +220,7 @@ bar {
 
 exec --no-startup-id nm-applet --indicator 
 exec --no-startup-id flameshot
-exec --no-startup-id fcitx5 -d
+exec --no-startup-id fcitx5
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
