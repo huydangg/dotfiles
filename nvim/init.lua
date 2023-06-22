@@ -7,7 +7,7 @@ require "theme"
 --
 require "plugins.cmp"
 require "plugins.lsp"
-require "plugins.telescope"
+require "plugins.fzf"
 require "plugins.treesitter"
 require "plugins.autopairs"
 require "plugins.comment"

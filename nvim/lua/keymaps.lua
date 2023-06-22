@@ -35,11 +35,11 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
 keymap("v", "p", '"_dP', opts)
 
--- Telescope
-keymap("n", "<C-p>", ":Telescope find_files no_ignore=true<CR>", opts)
-keymap("n", "<leader>g", ":Telescope live_grep<CR>", opts)
+-- Fzf
+keymap("n", "<C-p>", ":FzfLua files<CR>", opts)
+keymap("n", "<leader>g", ":lua require'fzf-lua'.live_grep()<CR>", opts)
 keymap("v", "<leader>g", ":lua VISUAL_LIVE_GREP()<CR>", opts)
-keymap("n", "<leader>f", ":Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<leader>f", ":lua require'fzf-lua'.lgrep_curbuf()<CR>", opts)
 keymap("v", "<leader>f", ":lua VISUAL_CURRENT_BUFFER_FUZZY_FIND()<CR>", opts)
 
 -- Gitsigns
