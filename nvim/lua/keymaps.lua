@@ -35,18 +35,27 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
 keymap("v", "p", '"_dP', opts)
 
--- Fzf
-keymap("n", "<C-p>", ":FzfLua files<CR>", opts)
-keymap("n", "<leader>g", ":lua require'fzf-lua'.live_grep()<CR>", opts)
+--- Telescope
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>bf", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>g", ":Telescope live_grep<CR>", opts)
 keymap("v", "<leader>g", ":lua VISUAL_LIVE_GREP()<CR>", opts)
-keymap("n", "<leader>f", ":lua require'fzf-lua'.lgrep_curbuf()<CR>", opts)
+keymap("n", "<leader>f", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("v", "<leader>f", ":lua VISUAL_CURRENT_BUFFER_FUZZY_FIND()<CR>", opts)
 
--- Gitsigns
-keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
 
 -- diagnostic
 keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+-- Spectre
+keymap('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', opts)
+keymap('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
+keymap('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
+keymap('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
+
+-- Fugitive
+keymap("n", "<leader>gg", ":G<CR>", opts)
+keymap("n", "<leader>b", ":Git blame<CR>", opts)

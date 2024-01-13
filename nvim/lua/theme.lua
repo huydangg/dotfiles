@@ -1,1 +1,1 @@
-require('onedark').load()
+require('vscode').load('dark')

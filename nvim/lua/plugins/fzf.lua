@@ -4,43 +4,49 @@ if not status_ok then
 end
 --line-number
 fzf.setup {
-  winopts = {
-    on_create = function()
-      vim.keymap.set("t", "jk",
-        "<cmd>lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-\\><C-n>', true, false, true), 'n', true)<CR>",
-        { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
-      vim.keymap.set("n", "q", function()
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true) or "", "n", true)
-      end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
-      vim.keymap.set("n", "j", function()
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true) or "", "n", true)
-      end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
-      vim.keymap.set("n", "k", function()
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true) or "", "n", true)
-      end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
-      vim.keymap.set("n", "<CR>", function()
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true) or "", "n", true)
-      end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
-    end
-  },
+  -- winopts = {
+  --   on_create = function()
+  --     vim.keymap.set("t", "jk",
+  --       "<cmd>lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-\\><C-n>', true, false, true), 'n', true)<CR>",
+  --       { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
+  --     vim.keymap.set("n", "q", function()
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true) or "", "n", true)
+  --     end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
+  --     vim.keymap.set("n", "j", function()
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true) or "", "n", true)
+  --     end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
+  --     vim.keymap.set("n", "k", function()
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true) or "", "n", true)
+  --     end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
+  --     vim.keymap.set("n", "<CR>", function()
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true) or "", "n", true)
+  --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true) or "", "n", true)
+  --     end, { nowait = true, noremap = true, buffer = vim.api.nvim_get_current_buf() })
+  --   end
+  -- },
   keymap = {
     fzf = {
       ["ctrl-q"] = "select-all+accept",
     }
   },
   files = {
-    cmd = "fd --type file --hidden -I --glob --exclude .git --exclude .cache --exclude *.o",
+    cmd =
+    "fd --type file --hidden -I --glob --exclude .git --exclude .cache --exclude *.o --exclude vendor --exclude node_modules --exclude target",
     multiprocess = true
-    -- cmd = "rg --files --hidden -g '!{**/node_modules/*,**/.git/*}'"
+  },
+  grep = {
+    cmd =
+    "rg --color=never --with-filename --line-number --column ---smart-case -g '!{**/.git/*,**/node_modules/*,**/vendor/*}'",
+    multiprocess = true
   },
   live_grep = {
-    cmd = "rd --color=never --with-filename --line-number --column ---smart-case",
+    cmd =
+    "rg --color=never --with-filename --line-number --column ---smart-case -g '!{**/.git/*,**/node_modules/*,**/vendor/*}'",
     multiprocess = true
   },
 }

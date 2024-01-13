@@ -2,7 +2,7 @@
 local opt = vim.opt
 
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-opt.mouse = "a"               -- allow the mouse to be used in neovim
+opt.mouse = ""                -- allow the mouse to be used in neovim
 opt.ignorecase = true         -- ignore case in search patterns
 opt.termguicolors = true
 opt.title = true
@@ -12,10 +12,13 @@ opt.title = true
 opt.expandtab = true
 opt.smartindent = true
 opt.tabstop = 2
+opt.softtabstop = 2
 opt.shiftwidth = 2
 
+
 -- Numbers
-opt.number = false
+opt.number = true
+opt.relativenumber = true
 opt.cursorline = true
 
 opt.numberwidth = 2

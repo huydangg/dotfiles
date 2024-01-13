@@ -21,7 +21,15 @@ end
 
 return lazy.setup({
   "nvim-lua/plenary.nvim",
-
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
+    -- or                              , branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+    }
+  },
 
   {
     "nvim-lualine/lualine.nvim",
@@ -43,9 +51,17 @@ return lazy.setup({
 
 
   -- LSP
-  "neovim/nvim-lspconfig", -- enable LSP
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+  {
+    "neovim/nvim-lspconfig", -- enable LSP
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  },
+
+  {
+    "simrat39/rust-tools.nvim",
+    "mfussenegger/nvim-dap",
+    { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  },
 
   -- Treesitter
   {
@@ -64,15 +80,13 @@ return lazy.setup({
 
   "ggandor/leap.nvim",
 
-  "f-person/git-blame.nvim",
 
   "stevearc/oil.nvim",
 
-  'navarasu/onedark.nvim',
-  { 'junegunn/fzf', build = './install --bin', },
 
-  {
-    'ibhagwan/fzf-lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-  },
+
+
+  "Mofiqul/vscode.nvim",
+  "nvim-pack/nvim-spectre",
+  "tpope/vim-fugitive",
 })
